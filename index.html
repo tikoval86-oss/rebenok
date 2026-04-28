@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Детский ведический гороскоп — Татьяна Шумихина</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Forum&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --beige:        #FAF3EA;
+    --plum:         #1A1A1A;
+    --plum-bg:      #2A0E26;
+    --cream:        #F5EDE4;
+    --gold:         #D4A84B;
+    --gold-bright:  #E2B84C;
+    --gold-deep:    #B8923A;
+    --line:         rgba(212, 168, 75, 0.5);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Forum', Georgia, serif;
+    font-weight: 400;
+    background: var(--beige);
+    color: var(--plum);
+    line-height: 1.55;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  /* HERO */
+  .hero { background: var(--plum-bg); color: var(--cream); padding: 70px 32px 64px; }
+  .hero-inner { max-width: 680px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Forum', serif;
+    font-weight: 400;
+    font-size: clamp(34px, 4.5vw, 50px);
+    line-height: 1.12;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+  .intro {
+    font-family: 'Forum', Georgia, serif;
+    font-size: 21px;
+    line-height: 1.6;
+    color: var(--cream);
+    max-width: 580px;
+  }
+  .intro em { color: var(--gold-bright); font-style: italic; }
+
+  /* CONTENT */
+  .content { background: var(--beige); padding: 50px 32px 60px; }
+  .content-inner { max-width: 680px; margin: 0 auto; }
+
+  .section { padding: 28px 0; border-top: 2px solid var(--gold); }
+  .section.last { border-bottom: 2px solid var(--gold); }
+  .kicker {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .lead {
+    font-family: 'Forum', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--plum);
+    margin-bottom: 14px;
+  }
+  .lead.italic { font-style: italic; }
+  .lead strong { color: var(--gold-deep); font-weight: 600; }
+
+  /* MOM VOICE BLOCK */
+  .voice-quote {
+    font-family: 'Forum', Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold-deep);
+    padding: 18px 22px;
+    border-left: 3px solid var(--gold);
+    background: rgba(212, 168, 75, 0.06);
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+
+  /* PLANET LIST */
+  .planet-list { list-style: none; padding: 0; margin-top: 14px; }
+  .planet-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: 'Forum', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--plum);
+  }
+  .planet-list li:last-child { border-bottom: none; }
+  .planet-list .name {
+    font-family: 'Forum', serif;
+    font-size: 22px;
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+
+  .dash-list { list-style: none; padding: 0; margin-top: 8px; }
+  .dash-list li {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: 'Forum', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--plum);
+  }
+  .dash-list li:last-child { border-bottom: none; }
+  .dash-list li::before {
+    content: "—";
+    color: var(--gold);
+    font-family: 'Forum', serif;
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+
+  /* NOTE */
+  .note {
+    font-family: 'Forum', Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--plum);
+    padding: 20px 22px;
+    border-left: 3px solid var(--gold);
+    margin-top: 12px;
+    background: rgba(212, 168, 75, 0.06);
+  }
+  .note strong { color: var(--gold-deep); font-style: normal; font-weight: 600; }
+
+  /* OBJECTION */
+  .pullquote {
+    background: var(--plum-bg);
+    color: var(--cream);
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .pullquote-inner { max-width: 540px; margin: 0 auto; }
+  .pullquote-star {
+    font-family: 'Forum', serif;
+    font-size: 30px;
+    color: var(--gold-bright);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .pq-quote {
+    font-family: 'Forum', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(21px, 2.2vw, 26px);
+    line-height: 1.45;
+    color: var(--cream);
+    margin-bottom: 26px;
+  }
+  .pq-answer {
+    font-family: 'Forum', Georgia, serif;
+    font-size: clamp(19px, 2vw, 22px);
+    line-height: 1.55;
+    color: var(--cream);
+  }
+  .pq-answer .first-word {
+    color: var(--gold-bright);
+    font-style: italic;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: clamp(20px, 2vw, 24px);
+  }
+  .pq-answer em { font-style: italic; color: var(--gold-bright); }
+
+  /* FORMATS */
+  .formats { background: var(--beige); padding: 20px 32px 60px; }
+  .formats-inner { max-width: 680px; margin: 0 auto; }
+  .formats-head { text-align: center; margin-bottom: 32px; }
+  .formats-head .kicker { color: var(--gold-deep); margin-bottom: 12px; }
+  .formats-head h2 {
+    font-family: 'Forum', serif;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 400;
+    color: var(--plum);
+    margin-bottom: 12px;
+  }
+  .formats-sep { width: 60px; height: 2.5px; background: var(--gold); margin: 0 auto; }
+
+  .format-card {
+    border: 1px solid rgba(168, 133, 63, 0.4);
+    border-radius: 14px;
+    padding: 28px 26px;
+    margin-bottom: 16px;
+    background: var(--plum-bg);
+    color: var(--cream);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+  }
+  .format-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 6px 20px rgba(42, 14, 38, 0.18);
+    transform: translateY(-2px);
+  }
+  .format-card.premium {
+    border: 1.5px solid var(--gold);
+    background: linear-gradient(135deg, #2A0E26 0%, #3A1635 50%, #2A0E26 100%);
+    box-shadow: 0 8px 26px rgba(42, 14, 38, 0.25);
+  }
+  .format-card.premium::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    border-radius: 14px 14px 0 0;
+  }
+  .format-card.premium .format-title { color: var(--gold-bright); }
+  .format-card.premium .format-price { font-size: 28px; font-weight: 700; }
+  .format-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .format-title {
+    font-family: 'Forum', serif;
+    font-size: 24px;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+  .format-desc {
+    font-family: 'Forum', Georgia, serif;
+    font-size: 18px;
+    color: var(--cream);
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+  .format-price {
+    font-family: 'Forum', Georgia, serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--gold-bright);
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--plum-bg);
+    color: var(--cream);
+    padding: 64px 32px 72px;
+    text-align: center;
+  }
+  .cta-star {
+    font-family: 'Forum', serif;
+    font-size: 28px;
+    color: var(--gold-bright);
+    margin-bottom: 22px;
+    display: block;
+  }
+  .cta-hook {
+    font-family: 'Forum', serif;
+    font-size: clamp(22px, 2.5vw, 28px);
+    color: var(--cream);
+    line-height: 1.3;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+  .cta-button {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--plum);
+    font-family: 'Forum', serif;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    padding: 18px 48px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 26px rgba(212, 168, 75, 0.32);
+  }
+  .cta-button:hover {
+    background: transparent;
+    color: var(--gold-bright);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(200, 169, 107, 0.32);
+  }
+  .cta-sub {
+    margin-top: 20px;
+    font-family: 'Forum', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--cream);
+    opacity: 0.55;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 50px 22px 46px; }
+    .content { padding: 36px 22px 44px; }
+    .formats { padding: 14px 22px 44px; }
+    .pullquote { padding: 50px 22px; }
+    h1 { font-size: 28px; }
+    .intro { font-size: 19px; }
+    .lead { font-size: 17px; }
+    .dash-list li, .planet-list li { font-size: 17px; padding: 12px 0; }
+    .voice-quote { font-size: 19px; padding: 16px 18px; }
+    .planet-list .name { font-size: 19px; }
+    .note { font-size: 17px; padding: 16px 18px; }
+    .format-card { padding: 22px 18px; }
+    .cta { padding: 50px 22px 60px; }
+    .cta-button { padding: 16px 36px; font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Детский гороскоп</div>
+    <h1>Понять ребёнка —<br>не догадываясь</h1>
+    <p class="intro">Вы заботитесь обо всём: еда, школа, кружки. А главное — <em>какой он внутри</em> — остаётся в догадках. И в тревоге.</p>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<main class="content">
+  <div class="content-inner">
+
+    <section class="section">
+      <div class="kicker">— Когда становится сложно —</div>
+      <div class="voice-quote">«Я его не понимаю. Он стал другим. Мы не находим общий язык.»</div>
+      <p class="lead">Знакомо?</p>
+      <p class="lead">Это <strong>не про плохие отношения</strong>. И не про то, что вы что-то делаете не так.</p>
+      <p class="lead italic">Это про другое: у вас нет карты ребёнка как личности.</p>
+      <p class="lead">А ребёнок — не всегда одинаковый. Он проходит разные внутренние периоды. И в каждом из них — другой.</p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">— Внутренние периоды —</div>
+      <p class="lead">В Джйотиш у каждого человека идут свои <strong>планетарные периоды</strong>. У ребёнка — особенно ярко. И в зависимости от того, какая планета сейчас активна, его поведение и потребности — разные:</p>
+      <ul class="planet-list">
+        <li><span class="name">Раху</span> — экспериментирование, бунт, выход за границы</li>
+        <li><span class="name">Меркурий</span> — любознательность, тяга к учёбе, активное мышление</li>
+        <li><span class="name">Кету</span> — уход в себя, молчаливость, внутренний мир</li>
+      </ul>
+      <p class="lead italic" style="margin-top:18px;">Это не «плохие фазы». Это естественные циклы психики ребёнка.</p>
+      <p class="lead">Когда видите — какой период сейчас, перестаёте требовать от ребёнка того, что в этом периоде ему не свойственно.</p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">— Что вы увидите в карте —</div>
+      <ul class="dash-list">
+        <li>врождённые таланты и склонности</li>
+        <li>особенности характера и эмоциональную структуру</li>
+        <li>как он учится и воспринимает информацию</li>
+        <li>как строит контакт с миром</li>
+        <li>периоды кризисов и периоды раскрытия</li>
+        <li>подходящие направления и кружки — а не «модные»</li>
+      </ul>
+      <p class="lead" style="margin-top:18px;">И отдельно — про то, что больше всего тревожит мам: <strong>речь, общение, контактность.</strong></p>
+      <p class="lead">Если ребёнок мало говорит, выглядит закрытым — карта покажет: это <em>временный период</em> или <em>его естественный тип</em>. И что с этим делать.</p>
+    </section>
+
+    <section class="section last">
+      <div class="kicker">— Что меняется у вас —</div>
+      <ul class="dash-list">
+        <li>спокойствие вместо тревоги</li>
+        <li>понимание поведения ребёнка</li>
+        <li>меньше конфликтов</li>
+        <li>больше доверия в отношениях</li>
+        <li>ясное направление развития</li>
+        <li>уверенность, что вы действуете правильно</li>
+      </ul>
+
+      <div class="note" style="margin-top:24px;">
+        <strong>Важно.</strong> Детский разбор особенно актуален <strong>до ~12 лет</strong>. После — ребёнок быстрее формирует свою взрослую траекторию, и для него уже подходит персональный астропортрет.
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- OBJECTION -->
+<section class="pullquote">
+  <div class="pullquote-inner">
+    <span class="pullquote-star">✦</span>
+    <p class="pq-quote">«Я мать.<br>Я и так знаю своего ребёнка.»</p>
+    <p class="pq-answer">
+      <span class="first-word">Возможно.</span><br>
+      А может — вы знаете ту версию, которую видите глазами матери.<br>
+      С ожиданиями. С тревогой. С надеждами.<br><br>
+      Карта показывает другое.<br>
+      Не ваш взгляд на ребёнка.<br>
+      <em>А — какой он сам по себе.</em><br><br>
+      Часто после разбора мамы говорят:<br>
+      «Я будто увидела его впервые. Не своими страхами — а как есть.»
+    </p>
+  </div>
+</section>
+
+<!-- MAIN IDEA + FORMATS -->
+<section class="formats">
+  <div class="formats-inner">
+    <div class="formats-head">
+      <p class="lead italic" style="text-align:center; max-width:520px; margin:0 auto 32px; font-size:22px;">Ребёнка не нужно переделывать. Его нужно <strong>понять</strong> — в его природе и его периоде. Когда вы видите его карту — исчезает борьба. Появляется контакт.</p>
+      <div class="kicker" style="color: var(--gold-deep); margin-bottom: 12px;">— Форматы —</div>
+      <h2>Как работаем</h2>
+      <div class="formats-sep"></div>
+    </div>
+
+    <div class="format-card">
+      <div class="format-title">Детский разбор</div>
+      <div class="format-desc">Голосовой разбор без обратной связи. Карта ребёнка, периоды, таланты, направления развития. Можно переслушивать.</div>
+      <div class="format-price">150 €</div>
+    </div>
+
+    <div class="format-card premium">
+      <span class="format-badge">Рекомендую</span>
+      <div class="format-title">Детский разбор + созвон</div>
+      <div class="format-desc">Голосовой разбор + встреча. Ваши вопросы по конкретным ситуациям с ребёнком — мои ответы. Под ваш запрос.</div>
+      <div class="format-price">200 €</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <span class="cta-star">✦</span>
+  <p class="cta-hook">Зову маму, которая хочет понять —<br>не догадываясь.</p>
+  <a href="https://t.me/astrolog_prognozi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80.%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%BE%D0%B2%D1%83%D1%82.." class="cta-button" target="_blank" rel="noopener">Заказать разбор</a>
+  <p class="cta-sub">от 150 € · два формата</p>
+</div>
+
+</body>
+</html>
